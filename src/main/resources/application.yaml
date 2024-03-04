@@ -1,2 +1,28 @@
 server:
   port: 0
+
+spring:
+  r2dbc:
+    url: r2dbc:h2:mem:///testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
+    username: sa
+    password:
+
+
+  sql:
+    init:
+      platform: h2
+      schema-locations: classpath:/schema.sql
+      data-locations: classpath:/data.sql
+
+logging:
+  level:
+    org:
+      springframework:
+        r2dbc: DEBUG
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+debug: true
+
